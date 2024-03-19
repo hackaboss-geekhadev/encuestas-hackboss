@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +12,14 @@ export const metadata = {
 export default function RootLayout ({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className='flex flex-col max-w-2xl mx-auto pt-10 items-center'>
+          <Header />
+          <main className="flex flex-col items-center justify-between p-12 gap-10">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   )
 }
